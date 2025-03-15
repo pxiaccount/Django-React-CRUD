@@ -14,7 +14,7 @@ Clone the repository:
 1. Change directory in to backend:
 
     ```bash
-        cd Django-React-CRUD/server/backend
+    cd Django-React-CRUD/server/backend
     ```
 
 2. Create a virtual environment and activate it:

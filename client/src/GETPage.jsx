@@ -1,28 +1,43 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-
+import { useNavigate } from 'react-router-dom'
 
 const GETPage = () => {
     const [data, setData] = useState([])
     const API_URL = `http://localhost:8000/api/user/`
+    const navigate = useNavigate()
 
     const GETData = async () => {
         try {
-            const request = await axios.get(API_URL)
-            setData(request.data)
-            console.log(request.data)
+            const response = await axios.get(API_URL)
+            setData(response.data)
+            console.log(response.data)
         } catch (error) {
             console.error(error)
         }
+    }
+
+    const navigateToCreate = () => {
+        navigate('/post')
     }
 
     useEffect(() => {
         GETData()
     }, [])
 
+    const DeleteItem = async (id) => {
+        try {
+            await axios.delete(`${API_URL}${id}/`)
+            setData(data.filter((item) => item.id !== id))
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
     return (
         <>
             <h1>CRUD App</h1>
+            <button onClick={navigateToCreate}>Create</button>
             <ul>
                 {data.map((item, i) => (
                     <div>
@@ -30,7 +45,7 @@ const GETPage = () => {
                             {item.name}
                         </li>
                         <button>Update</button>
-                        <button>Delete</button>
+                        <button onClick={() => DeleteItem(i)}>Delete</button>
                     </div>
                 ))}
             </ul>

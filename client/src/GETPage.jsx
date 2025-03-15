@@ -21,6 +21,10 @@ const GETPage = () => {
         navigate('/post')
     }
 
+    const navigateToUpdate = (id) => {
+        navigate(`/put/${id}/`)
+    }
+
     useEffect(() => {
         GETData()
     }, [])
@@ -39,13 +43,13 @@ const GETPage = () => {
             <h1>CRUD App</h1>
             <button onClick={navigateToCreate}>Create</button>
             <ul>
-                {data.map((item, i) => (
-                    <div>
-                        <li key={i}>
+                {data.map((item) => (
+                    <div key={item.id}>
+                        <li>
                             {item.name}
                         </li>
-                        <button>Update</button>
-                        <button onClick={() => DeleteItem(i)}>Delete</button>
+                        <button onClick={() => navigateToUpdate(item.id)}>Update</button>
+                        <button onClick={() => DeleteItem(item.id)}>Delete</button>
                     </div>
                 ))}
             </ul>

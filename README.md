@@ -5,8 +5,7 @@ CRUD (Create, Read, Update, Delete) App created with Django and React.js
 ## Installation
 
 Clone the repository:
-
-    ```bash
+    ```
     git clone https://github.com/pxiaccount/Django-React-CRUD.git
     ```
 

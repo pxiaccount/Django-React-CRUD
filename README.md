@@ -48,17 +48,17 @@ Clone the repository:
 1. Change directory in to client:
 
     ```bash
-        cd Django-React-CRUD/client
+    cd Django-React-CRUD/client
     ```
 
 2. Install packages:
 
     ```bash
-        npm install
+    npm install
     ```
 
 3. Run the development server:
 
     ```bash
-        npm run dev
+    npm run dev
     ```
